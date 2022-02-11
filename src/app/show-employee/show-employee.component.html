@@ -1,0 +1,52 @@
+<div class="container-fluid">
+<div style="margin:2rem 0">
+	<h1>
+	Employee List
+</h1>
+</div>
+<main>
+	<table>
+		<thead>
+			<tr>
+				<th>
+					Employee Id
+				</th>
+				<th>
+					Name
+				</th>
+				<th>
+					E-mail
+				</th>
+				<th>Gender</th>
+				<th>Status</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		
+		<tbody>
+			
+			<tr *ngFor="let a of list">
+				<td>
+					{{a.id}}<img (click)="updateall(a.id,'id')" src="assets/images/update.png">
+				</td>
+				<td>
+					{{a.name}}<img (click)="updateall(a.id,'name')" src="assets/images/update.png">
+				</td>
+				<td>
+					{{a.email}}<img (click)="updateall(a.id,'email')" src="assets/images/update.png">
+				</td>
+				<td>
+					{{a.gender}}<img (click)="updateall(a.id, 'gender')" src="assets/images/update.png">
+				</td>
+				<td>
+					{{a.status}}<img (click)="updateall(a.id, 'status')" src="assets/images/update.png">
+				</td>
+				<td class='select'>				
+						<img (click)="del(a.id)" src="assets/images/delete.png">
+					</td>
+			</tr>
+		</tbody>
+	</table>
+	<button (click)="navigate()">Create Employee</button>
+</main>
+</div>

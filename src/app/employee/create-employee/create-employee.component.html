@@ -1,0 +1,78 @@
+<div class="container">
+  <div class="brand-title">Employee Management System</div>
+  <form [formGroup]="createform" class="inputs" (ngSubmit)="submit()">
+
+    <label>EMPLOYEE ID</label>
+    <input formControlName="id" type="text" placeholder="ab1234" />
+    <div *ngIf="(submitted && createform.controls['id'].invalid || createform.controls['id'].touched && !createform.controls['id'].dirty)" class="alert alert-danger">
+      <div *ngIf="createform.controls['id'].errors?.['required']">
+        ID is required.
+      </div>
+    </div>
+
+    <label>EMPLOYEE NAME</label>
+    <input formControlName="name" type="text" placeholder="Sagnik Chaudhury" />
+<div *ngIf="(submitted && createform.controls['name'].invalid || createform.controls['name'].touched && !createform.controls['name'].dirty)" class="alert alert-danger">
+  <div *ngIf="createform.controls['name'].errors?.['required']">
+    Name is required.
+  </div>
+</div>
+
+    <label>EMAIL</label>
+    <input formControlName="email" type="email" placeholder="example@test.com" />
+    <div *ngIf="(submitted && createform.controls['email'].invalid || createform.controls['email'].touched && !createform.controls['email'].dirty)" class="alert alert-danger">
+      <div *ngIf="createform.controls['email'].errors?.['required']">
+        Email is required.
+      </div>
+      <div *ngIf="createform.controls['email'].errors?.['email']">
+        Email format is incorrect.
+      </div>
+    </div>
+
+
+    <label>GENDER</label>
+    <span style="margin-right:2rem">
+      <input style="box-shadow: none;
+    width: max-content;display: inline;height:auto;margin-right: 0.2rem;" formControlName="gender" type="radio" name="gender" id="male" value="Male"/>
+    <label style="box-shadow: none;
+    width: max-content;display: inline;" for="male">Male</label>
+    </span>
+    
+    <span>
+    <input style="box-shadow: none;
+    width: max-content;display: inline;height:auto;margin-right: 0.2rem;" formControlName="gender" type="radio" name="gender" id="female" value="Female"/>
+    <label style="box-shadow: none;
+    width: max-content;display: inline;" for="female">Female</label>
+    </span>
+    <div
+      *ngIf="(submitted && createform.controls['gender'].invalid || createform.controls['gender'].touched && !createform.controls['gender'].dirty)"
+      class="alert alert-danger">
+      <div *ngIf="createform.controls['gender'].errors?.['required']">
+        Please select Gender.
+      </div>
+    </div>
+    <label>STATUS</label>
+    <span style="margin-right:2rem">
+      <input style="box-shadow: none;
+    width: max-content;display: inline;height:auto;margin-right: 0.2rem;" formControlName="status" type="radio" name="status" id="active" value="Active"/>
+    <label style="box-shadow: none;
+    width: max-content;display: inline;" for="active">Active</label>
+    </span>
+    <span style="margin-right:2rem">
+      <input style="box-shadow: none;
+    width: max-content;display: inline;height:auto;margin-right: 0.2rem;" formControlName="status" type="radio" name="status" id="inactive" value="Inactive"/>
+    <label style="box-shadow: none;
+    width: max-content;display: inline;" for="inactive">Inactive</label>
+    </span>
+    <div
+      *ngIf="(submitted && createform.controls['status'].invalid || createform.controls['status'].touched && !createform.controls['status'].dirty)"
+      class="alert alert-danger">
+      <div *ngIf="createform.controls['status'].errors?.['required']">
+        Please select Status.
+      </div>
+    </div>
+    <button type="submit">CREATE EMPLOYEE</button>
+    
+    </form>
+    
+</div>
